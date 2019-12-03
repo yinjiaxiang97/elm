@@ -1,32 +1,42 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <comHeader></comHeader>
+     <comMain></comMain>
+   <router-view></router-view>
+    <foot></foot>
+    
   </div>
 </template>
 
+<script>
+import comMain from './components/shoop/main'
+import comHeader from "./components/header/header";
+import ulLi from "./components/shoop/ul";
+import foot from "./components/foot/footer";
+export default {
+  components: {
+    comMain,
+    comHeader,
+    ulLi,
+    foot
+  }
+};
+</script>
+
 <style>
+*{
+  text-decoration: none;
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  height: 100%;
+  font-size: 16px;
+   display: flex;
+  flex-direction: column;
+  justify-content:space-between;
 }
 
-#nav {
-  padding: 30px;
-}
+ 
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+/* 商品 评价 商家 */
 </style>
