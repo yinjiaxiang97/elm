@@ -1,42 +1,62 @@
 <template>
   <div id="app">
-    <comHeader></comHeader>
-     <comMain></comMain>
-   <router-view></router-view>
-    <foot></foot>
-    
+    <tou />
+    <div class="nav">
+      <div class="nav-item">
+        <router-link to="/shangpin">商品</router-link>
+      </div>
+      <div class="nav-item">
+        <router-link to="/pingjia">评价</router-link>
+      </div>
+      <div class="nav-item">
+        <router-link to="/shangjia">商家</router-link>
+      </div>
+    </div>
+
+    <router-view/>
   </div>
 </template>
 
 <script>
-import comMain from './components/shoop/main'
-import comHeader from "./components/header/header";
-import ulLi from "./components/shoop/ul";
-import foot from "./components/foot/footer";
+import tou from "./components/header/header.vue";
+import "../api/header.js"
 export default {
+  data(){
+    return {
+      seller:{}
+    }
+  },async created(){
+   this.seller= await getData("/api/seller")
+   console.log(this.await)
+  },
+
   components: {
-    comMain,
-    comHeader,
-    ulLi,
-    foot
+    tou
   }
 };
 </script>
 
-<style>
-*{
-  text-decoration: none;
+<style lang="scss" scoped>
+@import "./common/mixin.scss";
+.nav {
+  width: 100%;
+  height: 0.4rem;
+  line-height: 0.4rem;
+  display: flex;
+  justify-content: space-around;
+  @include border-1px(#ccc);  //@include调用
+  .nav-item {
+    width: 33.3%;
+    font-size: 0.14rem;
+    font-weight: 200;
+    text-align: center;
+    color: rgb(77, 85, 93);
+    & > a {
+      display: block;
+      &.active {
+        color: rgb(240, 20, 20);
+      }
+    }
+  }
 }
-
-#app {
-  height: 100%;
-  font-size: 16px;
-   display: flex;
-  flex-direction: column;
-  justify-content:space-between;
-}
-
- 
-
-/* 商品 评价 商家 */
 </style>

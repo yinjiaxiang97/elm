@@ -1,0 +1,11 @@
+@mixin border-1px ($color){  //下划线封装
+	position:relative;
+	&:after{
+		position: absolute;
+		bottom:0;
+		left: 0;
+		width: 100%;
+		border-bottom: 1px solid #ccc;
+		content:""
+	}
+}

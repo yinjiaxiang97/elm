@@ -1,6 +1,6 @@
 <template>
 	<div>
-		评价
+		商品
 	</div>
 </template>
 
