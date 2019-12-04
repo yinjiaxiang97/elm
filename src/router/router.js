@@ -17,4 +17,4 @@ export default new router({
 	linkExactActiveClass:"active", //精确匹配
 	linkActiveClass:"active"  //模糊匹配
 		//重新定义class名字；
-})
+})   
